@@ -4,6 +4,8 @@ var mime = require('mime');
 function FileInfo(name) {
     this.path = name || '';
     this.stat = maybeStat(this.path);
+    this.type = null;
+    this.charset = null;
     this.guessType = null;
     this.guessCharset = null;
     if (this.path) {

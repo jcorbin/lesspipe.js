@@ -3,6 +3,7 @@ var fs = require('fs');
 var inherits = require('util').inherits;
 
 var buildTransforms = require('./transformers');
+var detect = require('./transformers/lib/detect');
 var FileInfo = require('./transformers/lib/file_info');
 
 module.exports = LessPipe;
@@ -11,6 +12,7 @@ function LessPipe(config, output) {
     var self = this;
     self.config = config;
     self.output = output;
+    self.detect = detect;
     self.transform = buildTransforms(self.config.transform);
 }
 
@@ -38,7 +40,7 @@ LessPipe.prototype.process = function process(path, stream, callback) {
         stream = fs.createReadStream(info.path);
     }
     if (stream) {
-        handle(null, info, stream);
+        self.detect(info, stream, handle);
     } else {
         handle(null, info, null);
     }
