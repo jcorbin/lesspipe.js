@@ -1,5 +1,4 @@
 var childProc = require('./lib/child_proc');
-var fs = require('fs');
 
 // TODO: could fallback to ls -l if no tree
 
@@ -19,8 +18,7 @@ module.exports = childProc.transformer('tree', function treeLister(cfg) {
 
     function listTree(info, stream, callback) {
         if (info.stat && info.stat.isDirectory()) {
-            var path = fs.realpathSync(info.path);
-            childProc.transform(argv.concat([path]), stream, callback);
+            childProc.transform(argv.concat([info.realpath]), stream, callback);
         } else {
             callback(null);
         }
