@@ -3,6 +3,7 @@ module.exports = buildTransforms;
 function buildTransforms(options) {
     var transforms = [
         'tree',
+        'gzip',
         'pygmentize',
         'hexer'
     ].map(function each(delegateName) {
