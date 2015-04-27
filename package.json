@@ -29,6 +29,9 @@
       "url": "http://github.com/jcorbin/lesspipe.js/raw/master/LICENSE"
     }
   ],
+  "bin": {
+    "lesspipe.js": "./cli.js"
+  },
   "engines": {
     "node": ">= 0.10.x"
   },
