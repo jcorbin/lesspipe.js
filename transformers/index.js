@@ -2,6 +2,7 @@ module.exports = buildTransforms;
 
 function buildTransforms(options) {
     var transforms = [
+        'tree'
     ].map(function each(delegateName) {
         var delegateTransformer = require('./' + delegateName);
         return delegateTransformer(options[delegateName] || {});
