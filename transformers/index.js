@@ -4,6 +4,7 @@ function buildTransforms(options) {
     var transforms = [
         'tree',
         'gzip',
+        'bzip2',
         'pygmentize',
         'hexer'
     ].map(function each(delegateName) {
