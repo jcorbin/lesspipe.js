@@ -12,6 +12,7 @@ module.exports = childProc.transformer('bzip2', function bunziper(cfg) {
             callback(null);
         }
         function bunziped(err, stream) {
+            if (err) return callback(err);
             self.process(info.path
                 .replace(/\.bz2?$/i, '')
                 .replace(/\.tbz2?$/i, '.tar'),

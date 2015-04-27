@@ -12,6 +12,7 @@ module.exports = childProc.transformer('gzip', function gunziper(cfg) {
             callback(null);
         }
         function gunziped(err, stream) {
+            if (err) return callback(err);
             self.process(info.path
                 .replace(/\.g?z$/i, '')
                 .replace(/\.tg?z$/i, '.tar'),
