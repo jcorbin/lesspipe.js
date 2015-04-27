@@ -17,7 +17,8 @@
     }
   ],
   "dependencies": {
-    "minimist": "^1.1.1"
+    "minimist": "^1.1.1",
+    "which": "^1.0.9"
   },
   "devDependencies": {
     "jshint": "^2.7.0"
