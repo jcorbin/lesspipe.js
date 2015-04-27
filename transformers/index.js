@@ -3,6 +3,7 @@ module.exports = buildTransforms;
 function buildTransforms(options) {
     var transforms = [
         'tree',
+        'zlib',
         'gzip',
         'bzip2',
         'tar',
