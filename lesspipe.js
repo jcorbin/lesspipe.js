@@ -2,6 +2,7 @@ var EventEmitter = require('events').EventEmitter;
 var fs = require('fs');
 var inherits = require('util').inherits;
 
+var buildTransforms = require('./transformers');
 var FileInfo = require('./transformers/lib/file_info');
 
 module.exports = LessPipe;
@@ -10,6 +11,7 @@ function LessPipe(config, output) {
     var self = this;
     self.config = config;
     self.output = output;
+    self.transform = buildTransforms(self.config.transform);
 }
 
 inherits(LessPipe, EventEmitter);
@@ -36,9 +38,16 @@ LessPipe.prototype.process = function process(path, stream, callback) {
         stream = fs.createReadStream(info.path);
     }
     if (stream) {
-        output(null, stream);
+        handle(null, info, stream);
     } else {
-        output(null, null);
+        handle(null, info, null);
+    }
+
+    function handle(err, info, instream) {
+        self.transform(info, instream, transformed);
+        function transformed(err, outstream) {
+            callback(err, outstream || instream);
+        }
     }
 
     function output(err, stream) {
