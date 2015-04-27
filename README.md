@@ -33,6 +33,13 @@ distros ship this, and you can `brew install tree` on OS X.
 
 Currently only gzip, bzip2, and tar are supported.  More will be added soon.
 
+### git
+
+If you less a git object or pack directly, `git-show` or `git-show-index` will
+be used to format.  Try it out:
+
+    $ find .git/objects -type f | xargs less
+
 ### Pygmentize
 
 If you have pygmentize on your path, then it will be used to syntax highlight
