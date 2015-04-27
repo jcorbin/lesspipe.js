@@ -21,6 +21,7 @@
     "mime": "^1.3.4",
     "minimist": "^1.1.1",
     "mmmagic": "^0.3.13",
+    "pygments-lexers": "^1.1.0",
     "readable-stream": "~1.0.0",
     "which": "^1.0.9"
   },

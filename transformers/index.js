@@ -3,6 +3,7 @@ module.exports = buildTransforms;
 function buildTransforms(options) {
     var transforms = [
         'tree',
+        'pygmentize',
         'hexer'
     ].map(function each(delegateName) {
         var delegateTransformer = require('./' + delegateName);
