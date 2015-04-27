@@ -1,0 +1,35 @@
+{
+  "name": "lesspipe.js",
+  "version": "0.1.0",
+  "description": "Modern lesspipe",
+  "keywords": [],
+  "author": "Joshua T Corbin <jcorbin@wunjo.org>",
+  "repository": "git://github.com/jcorbin/lesspipe.js.git",
+  "main": "lesspipe.js",
+  "homepage": "https://github.com/jcorbin/lesspipe.js",
+  "bugs": {
+    "url": "https://github.com/jcorbin/lesspipe.js/issues",
+    "email": "jcorbin@wunjo.org"
+  },
+  "contributors": [
+    {
+      "name": "Joshua T Corbin"
+    }
+  ],
+  "devDependencies": {
+    "jshint": "^2.7.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/jcorbin/lesspipe.js/raw/master/LICENSE"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.10.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": false
+}
