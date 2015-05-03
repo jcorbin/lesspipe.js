@@ -1,11 +1,23 @@
 var spawn = require('child_process').spawn;
-var which = require('which');
+var _which = require('which');
+
+function which (prog) {
+    try {
+        return _which.sync(prog);
+    } catch (err) {
+        if (err.message === 'not found: ' + prog) {
+            return null;
+        } else {
+            throw err;
+        }
+    }
+}
 
 module.exports.transformer = childProcTransformer;
 module.exports.transform = childProcTransform;
 
 function childProcTransformer(prog, transformer) {
-    var cmd = which.sync(prog);
+    var cmd = which(prog);
     if (!cmd) return noopTransformer;
     return subTransformer;
     function subTransformer(options) {
